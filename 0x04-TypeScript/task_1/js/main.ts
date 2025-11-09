@@ -5,7 +5,7 @@ interface Teacher {
     fullTimeEmployee: boolean;
     yearsOfExperience?: number;
     location: string;
-    [key: string]: any; // allows any other attributes like 'contract'
+    [key: string]: any; // allows extra properties
 }
 
 // Director interface extending Teacher
@@ -13,15 +13,15 @@ interface Director extends Teacher {
     numberOfReports: number;
 }
 
-// printTeacherFunction interface
+// Interface for printTeacher function
 interface printTeacherFunction {
     (firstName: string, lastName: string): string;
 }
 
-// Implementing printTeacher
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+// Function declaration (required by the test)
+function printTeacher(firstName: string, lastName: string): string {
     return `${firstName[0]}. ${lastName}`;
-};
+}
 
 // Teacher instances
 const teacher1: Teacher = {
@@ -68,9 +68,8 @@ console.log('teacher2', teacher2);
 console.log('teacher3', teacher3);
 console.log('director1', director1);
 console.log('printTeacher("John", "Doe"):', printTeacher("John", "Doe"));
-console.log('printTeacher("Jane", "Smith"):', printTeacher("Jane", "Smith"));
 
-// DOM output (if you have an element with id="output")
+// DOM output
 const output = document.getElementById('output');
 if (output) {
     const pre = document.createElement('pre');
@@ -79,7 +78,6 @@ if (output) {
         'teacher2: ' + JSON.stringify(teacher2, null, 2) + '\n\n' +
         'teacher3: ' + JSON.stringify(teacher3, null, 2) + '\n\n' +
         'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
-        'printTeacher("John", "Doe"): ' + printTeacher("John", "Doe") + '\n' +
-        'printTeacher("Jane", "Smith"): ' + printTeacher("Jane", "Smith");
+        'printTeacher("John", "Doe"): ' + printTeacher("John", "Doe");
     output.appendChild(pre);
 }
