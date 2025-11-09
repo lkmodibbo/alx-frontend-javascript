@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,       // if you don't want TypeScript to check .js files
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "outDir": "./dist",
+    "rootDir": "./js"
+  },
+  "include": ["js/**/*"]
+}
