@@ -79,11 +79,14 @@ console.log('printTeacher("John", "Doe"):', printTeacher("John", "Doe"));
 const output = document.getElementById('output');
 if (output) {
     const pre = document.createElement('pre');
-    pre.textContent =
-        'teacher1: ' + JSON.stringify(teacher1, null, 2) + '\n\n' +
-        'teacher2: ' + JSON.stringify(teacher2, null, 2) + '\n\n' +
-        'teacher3: ' + JSON.stringify(teacher3, null, 2) + '\n\n' +
-        'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
-        'printTeacher("John", "Doe"): ' + printTeacher("John", "Doe");
-    output.appendChild(pre);
-}
+   // Function call using destructured object (matches test)
+console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+
+// And in the DOM output:
+pre.textContent =
+    'teacher1: ' + JSON.stringify(teacher1, null, 2) + '\n\n' +
+    'teacher2: ' + JSON.stringify(teacher2, null, 2) + '\n\n' +
+    'teacher3: ' + JSON.stringify(teacher3, null, 2) + '\n\n' +
+    'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
+    'printTeacher("John", "Doe"): ' + printTeacher({ firstName: "John", lastName: "Doe" });
+ }
