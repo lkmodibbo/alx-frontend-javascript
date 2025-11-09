@@ -19,9 +19,15 @@ interface printTeacherFunction {
 }
 
 // Function declaration (required by the test)
-function printTeacher(firstName: string, lastName: string): string {
-    return `${firstName[0]}. ${lastName}`;
+
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
 }
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName[0]}. ${lastName}`;
+}
+
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
 
 // Teacher instances
 const teacher1: Teacher = {
