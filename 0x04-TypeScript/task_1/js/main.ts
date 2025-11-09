@@ -5,7 +5,7 @@ interface Teacher {
     fullTimeEmployee: boolean;
     yearsOfExperience?: number;
     location: string;
-    [key: string]: string | number | boolean | undefined;
+    [key: string]: any;
 
 }
 
