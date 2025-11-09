@@ -75,6 +75,7 @@ console.log('teacher3', teacher3);
 console.log('director1', director1);
 console.log('printTeacher("John", "Doe"):', printTeacher("John", "Doe"));
 
+
 // DOM output
 const output = document.getElementById('output');
 if (output) {
@@ -90,3 +91,33 @@ pre.textContent =
     'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
     'printTeacher("John", "Doe"): ' + printTeacher({ firstName: "John", lastName: "Doe" });
  }
+
+ 
+interface StudentClassConstructor {
+    new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+interface StudentClassInterface {
+    workOnHomework(): string;
+    displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+    firstName: string;
+    lastName: string;
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    workOnHomework(): string {
+        return "currently working"
+    }
+    displayName(): string {
+        return this.firstName
+    }
+}
+
+const student = new StudentClass("Lukman", "Modibbo");
+console.log(student.displayName());
+console.log(student.workOnHomework())
