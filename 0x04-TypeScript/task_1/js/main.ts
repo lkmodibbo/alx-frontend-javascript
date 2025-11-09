@@ -3,7 +3,7 @@ interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
     fullTimeEmployee: boolean;
-    yearsOfEXperience?: number;
+    yearsOfExperience?: number;
     location: string;
     [key: string]: string | number | boolean | undefined;
 
@@ -13,7 +13,7 @@ const teacher1: Teacher = {
     firstName: "Uncle Science",
     lastName: "faisal",
     fullTimeEmployee: true,
-    yearsOfEXperience: 5,
+    yearsOfExperience: 5,
     location: "Maraba"
     
 }
@@ -35,7 +35,7 @@ const teacher3: Teacher = {
 }
 
 teacher3.fullTimeEmployee = true;
-teacher3.yearsOfEXperience = 2;
+teacher3.yearsOfExperience = 2;
 teacher3.contract = true;
 
 console.log('teacher1', teacher1);
