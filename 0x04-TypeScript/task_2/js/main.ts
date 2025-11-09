@@ -56,16 +56,18 @@ function executeWork(employee: Director | Teacher): string {
   return employee.workTeacherTasks();
 }
 // String literal type
+
 type Subjects = "Math" | "History";
 
-// Function that teaches a class
+// Function with typed parameter
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
-  } 
+  }
   return "Teaching History";
 }
 
 // Example usage
 console.log(teachClass("Math"));    // Teaching Math
 console.log(teachClass("History")); // Teaching History
+
