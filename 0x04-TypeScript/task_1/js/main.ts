@@ -1,0 +1,53 @@
+
+interface Teacher {
+    readonly firstName: string;
+    readonly lastName: string;
+    fullTimeEmployee: boolean;
+    yearsOfEXperience?: number;
+    location: string;
+    [key: string]: string | number | boolean | undefined;
+
+}
+
+const teacher1: Teacher = {
+    firstName: "Uncle Science",
+    lastName: "faisal",
+    fullTimeEmployee: true,
+    yearsOfEXperience: 5,
+    location: "Maraba"
+    
+}
+
+const teacher2: Teacher = {
+    firstName: "Uncle Simon",
+    lastName: "Umaru",
+    fullTimeEmployee: false,
+    location: "Maraba",
+    contract: true
+}
+
+const teacher3: Teacher = {
+    firstName: "Uncle Bilal",
+    lastName: "faisal",
+    fullTimeEmployee: false,
+    location: "Maraba",
+    contract: false
+}
+
+teacher3.fullTimeEmployee = true;
+teacher3.yearsOfEXperience = 2;
+teacher3.contract = true;
+
+console.log('teacher1', teacher1);
+console.log('teacher2', teacher2);
+console.log('teacher3', teacher3);
+const output = document.getElementById('output')
+if (output) {
+    const pre = document.createElement('pre')
+    pre.textContent = 
+        'teacher1: ' + JSON.stringify(teacher1, null, 2)  + '\n\n' +
+        'teacher2: ' + JSON.stringify(teacher2, null, 2)  + '\n\n' +
+        'teacher3: ' + JSON.stringify(teacher3, null, 2);
+        output.appendChild(pre);
+
+}
