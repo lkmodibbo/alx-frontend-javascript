@@ -1,17 +1,29 @@
+// Teacher interface
 interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
     fullTimeEmployee: boolean;
     yearsOfExperience?: number;
     location: string;
-    [key: string]: any; // allow any extra attribute
+    [key: string]: any; // allows any other attributes like 'contract'
 }
 
-// Director interface extends Teacher
+// Director interface extending Teacher
 interface Director extends Teacher {
-    numberOfReports: number; // mandatory
+    numberOfReports: number;
 }
 
+// printTeacherFunction interface
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+// Implementing printTeacher
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName[0]}. ${lastName}`;
+};
+
+// Teacher instances
 const teacher1: Teacher = {
     firstName: "Uncle Science",
     lastName: "Faisal",
@@ -36,6 +48,7 @@ const teacher3: Teacher = {
     contract: false
 };
 
+// Director instance
 const director1: Director = {
     firstName: "Lawal",
     lastName: "Ahmad",
@@ -44,16 +57,20 @@ const director1: Director = {
     numberOfReports: 17
 };
 
-// Modifying dynamic attributes
+// Modify some properties
 teacher3.fullTimeEmployee = true;
 teacher3.yearsOfExperience = 2;
 teacher3.contract = true;
 
+// Console output
 console.log('teacher1', teacher1);
 console.log('teacher2', teacher2);
 console.log('teacher3', teacher3);
 console.log('director1', director1);
+console.log('printTeacher("John", "Doe"):', printTeacher("John", "Doe"));
+console.log('printTeacher("Jane", "Smith"):', printTeacher("Jane", "Smith"));
 
+// DOM output (if you have an element with id="output")
 const output = document.getElementById('output');
 if (output) {
     const pre = document.createElement('pre');
@@ -61,6 +78,8 @@ if (output) {
         'teacher1: ' + JSON.stringify(teacher1, null, 2) + '\n\n' +
         'teacher2: ' + JSON.stringify(teacher2, null, 2) + '\n\n' +
         'teacher3: ' + JSON.stringify(teacher3, null, 2) + '\n\n' +
-        'director1: ' + JSON.stringify(director1, null, 2);
+        'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
+        'printTeacher("John", "Doe"): ' + printTeacher("John", "Doe") + '\n' +
+        'printTeacher("Jane", "Smith"): ' + printTeacher("Jane", "Smith");
     output.appendChild(pre);
 }
