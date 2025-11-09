@@ -7,8 +7,8 @@ interface Teacher {
     [key: string]: any; // allow any extra attribute
 }
 
-// Director extends Teacher
-interface Directors extends Teacher {
+// Director interface extends Teacher
+interface Director extends Teacher {
     numberOfReports: number; // mandatory
 }
 
@@ -18,7 +18,7 @@ const teacher1: Teacher = {
     fullTimeEmployee: true,
     yearsOfExperience: 5,
     location: "Maraba"
-}
+};
 
 const teacher2: Teacher = {
     firstName: "Uncle Simon",
@@ -26,7 +26,7 @@ const teacher2: Teacher = {
     fullTimeEmployee: false,
     location: "Maraba",
     contract: true
-}
+};
 
 const teacher3: Teacher = {
     firstName: "Uncle Bilal",
@@ -34,15 +34,15 @@ const teacher3: Teacher = {
     fullTimeEmployee: false,
     location: "Maraba",
     contract: false
-}
+};
 
-const director1: Directors = {
+const director1: Director = {
     firstName: "Lawal",
     lastName: "Ahmad",
     location: "Ganye",
     fullTimeEmployee: true,
     numberOfReports: 17
-}
+};
 
 // Modifying dynamic attributes
 teacher3.fullTimeEmployee = true;
