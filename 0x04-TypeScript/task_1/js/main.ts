@@ -13,18 +13,21 @@ interface Director extends Teacher {
     numberOfReports: number;
 }
 
-// Interface for the function
+// Interface for printTeacher function
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+// Function declaration (required by the test)
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
-
-// Function definition
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName[0]}. ${lastName}`;
-};
+}
 
-// Example usage
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
 
 // Teacher instances
 const teacher1: Teacher = {
@@ -77,11 +80,13 @@ const output = document.getElementById('output');
 if (output) {
     const pre = document.createElement('pre');
    // Function call using destructured object (matches test)
+console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+
 // And in the DOM output:
 pre.textContent =
     'teacher1: ' + JSON.stringify(teacher1, null, 2) + '\n\n' +
     'teacher2: ' + JSON.stringify(teacher2, null, 2) + '\n\n' +
     'teacher3: ' + JSON.stringify(teacher3, null, 2) + '\n\n' +
     'director1: ' + JSON.stringify(director1, null, 2) + '\n\n' +
-    // 'printTeacher("John", "Doe"): ' + printTeacher({ firstName: "John", lastName: "Doe" });
+    'printTeacher("John", "Doe"): ' + printTeacher({ firstName: "John", lastName: "Doe" });
  }
