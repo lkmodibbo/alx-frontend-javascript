@@ -60,7 +60,7 @@ function executeWork(employee: Director | Teacher): string {
 type Subjects = "Math" | "History";
 
 // Function declaration matching checker exactly
-function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass:Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   }
